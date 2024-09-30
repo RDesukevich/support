@@ -87,3 +87,47 @@ document.getElementById('addHeartButton').addEventListener('click', () => {
         heart.style.transform = 'scale(1)';
     }, 100);
 });
+
+function updateGreeting() {
+    const greetingElement = document.getElementById('greetingModal');
+    const now = new Date();
+    const hours = now.getHours();
+
+    if (hours >= 7 && hours < 12) {
+        greetingElement.textContent = "Удачи на работе 🍀";
+    } else if (hours >= 12 && hours < 13) {
+        greetingElement.textContent = "Пора кушать 🍽️";
+    } else if (hours >= 13 && hours < 16) {
+        greetingElement.textContent = "Скоро уже конец рабочего времени";
+    } else if (hours >= 16 && hours < 21) {
+        greetingElement.textContent = "Ураа, этот момент настал, ещё один отработанный день в копилку";
+    } else {
+        greetingElement.textContent = "Сладких снов 😘";
+    }
+
+    openModal(); // Открыть модальное окно
+}
+
+function openModal() {
+    const modal = document.getElementById('greetingModal');
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.fontSize = "32px";
+    modal.style.textAlign = "center";
+}
+
+function closeModal() {
+    const modal = document.getElementById('greetingModal');
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('greetingModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+    
+}
+
+// Вызываем функцию при загрузке страницы
+updateGreeting();

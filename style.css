@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 25vh;
+  height: 30vh;
   font-family: Arial, sans-serif;
 }
 
@@ -127,4 +127,17 @@ h1 {
   position: absolute;
   background-color: red;
   transition: transform 0.5s ease;
+}
+
+.modal {
+  display: none; /* Скрыть модальное окно по умолчанию */
+  position: fixed; /* Окно фиксировано */
+  z-index: 1; /* Сверху */
+  left: 0;
+  top: 0;
+  width: 100%; /* Полная ширина */
+  height: 100%; /* Полная высота */
+  overflow: auto; /* Включить прокрутку, если нужно */
+  background-color: rgb(0,0,0); /* Фоновый цвет */
+  background-color: rgba(0,0,0,0.4); /* Фон с прозрачностью */
 }

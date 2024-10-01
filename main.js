@@ -1,6 +1,39 @@
+function updateGreeting() {
+    const popupHeader = document.getElementById('popupHeader');
+    const now = new Date();
+    const hours = now.getHours();
+
+    if (hours >= 7 && hours < 12) {
+        popupHeader.textContent = "Удачи на работе 🍀";
+    } else if (hours >= 12 && hours < 13) {
+        popupHeader.textContent = "Пора кушать 🍽️";
+    } else if (hours >= 13 && hours < 16) {
+        popupHeader.textContent = "Скоро уже конец рабочего времени";
+    } else if (hours >= 16 && hours < 21) {
+        popupHeader.textContent = "Ураа, этот момент настал, ещё один отработанный день в копилку";
+    } else {
+        popupHeader.textContent = "Сладких снов 😘";
+    }
+}
+
+window.onload = function() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('popup').style.display = 'flex';
+    document.getElementById('popup').style.justifyContent = 'center';
+    document.getElementById('popup').style.flexDirection = 'column';
+};
+
+document.getElementById('close-btn').onclick = function() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('popup').style.display = 'none';
+};
+
+updateGreeting();
+
 function hideButton() {
     document.getElementById("typeButton").style.display = "none";
     document.getElementById("heart").style.display="inline-block";
+    document.getElementById("text").style.boxShadow ='rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px';
 }
 
 document.getElementById('typeButton').addEventListener('click', () => {
@@ -63,59 +96,3 @@ function typeText(text, index) {
         newTextButton.style.display = 'block'; // Показать кнопку для нового текста
     }
 }
-
-document.getElementById('addHeartButton').addEventListener('click', () => {
-    const loveContainer = document.getElementById('love');
-    const heart = document.createElement('div');
-    heart.className = 'serdce';
-
-    // Генерируем случайный цвет
-    const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-    heart.style.backgroundColor = randomColor;
-
-    // Генерируем случайные координаты внутри контейнера
-    const x = Math.random() * (loveContainer.clientWidth - 30);
-    const y = Math.random() * (loveContainer.clientHeight - 30);
-    heart.style.left = `${x}px`;
-    heart.style.top = `${y}px`;
-
-    loveContainer.appendChild(heart);
-
-    // Добавляем анимацию появления
-    heart.style.transform = 'scale(1.2)';
-    setTimeout(() => {
-        heart.style.transform = 'scale(1)';
-    }, 100);
-});
-
-function updateGreeting() {
-    const popupHeader = document.getElementById('popupHeader');
-    const now = new Date();
-    const hours = now.getHours();
-
-    if (hours >= 7 && hours < 12) {
-        popupHeader.textContent = "Удачи на работе 🍀";
-    } else if (hours >= 12 && hours < 13) {
-        popupHeader.textContent = "Пора кушать 🍽️";
-    } else if (hours >= 13 && hours < 16) {
-        popupHeader.textContent = "Скоро уже конец рабочего времени";
-    } else if (hours >= 16 && hours < 21) {
-        popupHeader.textContent = "Ураа, этот момент настал, ещё один отработанный день в копилку";
-    } else {
-        popupHeader.textContent = "Сладких снов 😘";
-    }
-}
-
-window.onload = function() {
-    document.getElementById('overlay').style.display = 'block';
-    document.getElementById('popup').style.display = 'flex';
-    document.getElementById('popup').style.justifyContent = 'center';
-    document.getElementById('popup').style.flexDirection = 'column';
-};
-
-document.getElementById('close-btn').onclick = function() {
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById('popup').style.display = 'none';
-};
-
-updateGreeting();

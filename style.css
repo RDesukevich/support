@@ -98,7 +98,7 @@ h1 {
   font-size: 24px;
   white-space: pre-wrap; /* Чтобы текст переносился на новую строку */
   text-align: justify;
-
+  background-color: #DCDCDC;
 }
 
 .serdce:before,

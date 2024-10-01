@@ -9,26 +9,57 @@
     <title>Поддержка</title>
 </head>
 <body>
-    <div id="text"></div>
-    <div class="container">
-        <button onclick="hideButton()" class="btn" id="typeButton">Нажми, если грустно</button>
-        <div class="main">
-            <div id="heart" class="heart"></div>
-            <h1 id="pulsingTitle">Улыбайся солнце 😘</h1>
-        </div>   
+    <div class="section">
+        <h2 class="heading">Текст</h2>
+        <div id="text"></div>
+        <div class="container">
+            <button onclick="hideButton()" class="btn" id="typeButton">Нажми, если грустно</button>
+            <div class="main">
+                <div id="heart" class="heart"></div>
+                <h1 id="pulsingTitle">Улыбайся солнце 😘</h1>
+            </div>   
+        </div>
     </div>
+    
 
     <div id="overlay"></div>
     <div id="popup">
         <h2 id="popupHeader"></h2>
+        <p class="updatePatch">Обновление: Добавлена мини игра "Сердечный Марафон"</p>
         <button class="btn" id="close-btn">Спасибо</button>
     </div>
 
-    <button class="btn" id="addHeartButton">Клик</button>
-    <div class="love" id="love">
-        <!-- Сердца будут добавляться сюда -->
+    <div class="section">
+        <h2 class="heading">Мини-игра "Сердечный Марафон"</h2>
+        <div class="heartGame_btns">
+            <button id="startGameButton" class="btn">Начать игру</button>
+            <button id="openInstructionsButton" class="btn">Правила игры</button>
+        </div>
+        <div class="heartGame_text">
+            <div id="score">Счет: 0</div>
+            <div id="timer">Осталось времени: 30</div>
+        </div>
+        <div id="heartContainer"></div>
     </div>
+
+     <!-- Основное модальное окно для завершения игры -->
+    <div id="overlay2"></div>
+    <div id="popup2">
+        <h2 id="popupHeader2">Игра окончена!</h2>
+        <p id="finalScore"></p>
+        <button class="btn" id="closePopup2">Закрыть</button>
+    </div>
+
+     <!-- Модальное окно для инструкции -->
+    <div class="overlay2"></div>
+    <div id="instructionsPopup" style="display: none;">
+       <h2>Инструкция по игре "Сердечный Марафон"</h2>
+       <p>Кликните на сердца, чтобы заработать очки! У вас есть 30 секунд, чтобы набрать максимальное количество очков. Удачи!</p>
+       <button class="btn" id="closeInstructionsPopup">Закрыть</button>
+    </div>
+
     <script src="main.js"></script>
+    <script src="gameHeart.js"></script>
 </body>
 
 </html>
